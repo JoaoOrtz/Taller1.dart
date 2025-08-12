@@ -2,37 +2,40 @@ import 'dart:io';
 import 'dart:math';
 
 void main(){
-    print("Ingrese la opcion:\n 1. Calculo de distancia\n 2. Promedio de notas\n 3. Puntos de partidos\n 4. Planilla de una empresa\n 5. Calculo de la hipotenusa\n 6. De celsius a fahrenheit");
-    int opcion = int.parse(stdin.readLineSync()!);
+  int opcion;
+    do {
+      print("Ingrese la opcion:\n 1. Calculo de distancia\n 2. Promedio de notas\n 3. Puntos de partidos\n 4. Planilla de una empresa\n 5. Calculo de la hipotenusa\n 6. De celsius a fahrenheit\n 7. Salir");
+      opcion = int.parse(stdin.readLineSync()!);
+      
+      switch (opcion){
+        case 1:
+          Actividad1();
+          break;
 
-    switch (opcion){
-      case 1:
-        Actividad1();
-        break;
+        case 2:
+          Actividad2();
+          break;
 
-      case 2:
-        Actividad2();
-        break;
+        case 3:
+          Actividad3();
+          break;
 
-      case 3:
-        Actividad3();
-        break;
+        case 4:
+          Actividad4();
+          break;
 
-      case 4:
-        Actividad4();
-        break;
+        case 5:
+          Actividad5();
+          break;
 
-      case 5:
-        Actividad5();
-        break;
-
-      case 6:
-        Actividad6();
-        break;
-
-      default:
-        print("Opción inválida");
-    }
+        case 6:
+          Actividad6();
+          break;
+        case > 7:
+          print("Opcion no encontrada $opcion");
+      }
+    } while (opcion != 7);
+    print("Gracias y adios");
 }
 
 void Actividad1(){
@@ -42,10 +45,9 @@ void Actividad1(){
     double t = double.parse(stdin.readLineSync()!);
 
     double d = v*t;
-    print("\n--- Resultados ---");
-    print("La distancia que recorrio es: $d");
-    print("------------------------------------------");
-    main();
+    print("\n--------------- Resultados ---------------");
+    print("La distancia que recorrio es: $d Km");
+    print("---------------------------------------------");
 }
 
 void Actividad2(){
@@ -58,11 +60,10 @@ void Actividad2(){
   print("Ingrese la tercera nota: ");
   double nota3 = double.parse(stdin.readLineSync()!);
 
-  double promedio = nota1 + nota2 + nota3 / 3;
+  double promedio = (nota1 + nota2 + nota3) / 3;
   print("\n--- Resultados ---");
-  print("El promedio es: $promedio");
+  print("El promedio es: ${promedio.toStringAsFixed(2)}");
   print("------------------------------------------");
-  main();
 }
 
 void Actividad3(){
@@ -86,10 +87,10 @@ void Actividad3(){
   print("Partidos ganados: $ganado");
   print("Partidos empatados: $empatado");
   print("Partidos perdidos: $perdido");
-  print("Puntos totales: $puntosTotal");
+  print("Puntos totales: $puntosTotal puntos");
   print("Partidos jugados: $patidosJugados");
   print("------------------------------------------");
-  main();
+
 }
 
 void Actividad4(){
@@ -106,8 +107,8 @@ void Actividad4(){
 
   print("\n--- Resultados ---");
   print("Nombre del empleado: $nombreEmpleado");
-  print("Cantidad de horas laboradas: $cantidadHoras");
-  print("Total devengado: $totalDevengado");
+  print("Cantidad de horas laboradas: $cantidadHoras h");
+  print("Total devengado: $totalDevengado \$");
   print("------------------------------------------");
   main();
 }
@@ -126,8 +127,6 @@ void Actividad5(){
   print("El cateto adyacente es: $b");
   print("La hipotenusa es: ${h.toStringAsFixed(2)}");
   print("------------------------------------------");
-  main();
-
 }
 
 void Actividad6(){
@@ -136,7 +135,6 @@ void Actividad6(){
 
   double fahrenheit = (celsius*1.8)+32;
   print("\n--- Resultados ---");
-  print("Fahrenheit: ${fahrenheit.toStringAsFixed(2)}");
+  print("Fahrenheit: ${fahrenheit.toStringAsFixed(2)}F");
   print("------------------------------------------");
-  main();
 }
